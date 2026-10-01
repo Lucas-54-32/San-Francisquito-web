@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>San Francisquito</title>
+    <link rel="stylesheet" href="secretaria.css" />
+    <link rel="icon" type="image/x-icon" href="Imagenes/logonegro2circulo.png" />
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="header-container">
+            <div class="icono">
+                <img src="Imagenes/logonegro2circulo.png" id="logo-negro" class="logo" alt="Logo Negro">
+                <img src="Imagenes/Nuevo logo.png" id="logo-blanco" class="logo" alt="Logo Blanco" />
+            </div>
+
+            <div class="nav-text">
+                E.E.T.P.P.I N° 2076<br />
+                "San Francisquito"
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" id="nav-menu">
+                <ul class="lista-nav">
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="Modalidad.html">MODALIDAD</a></li>
+                    <li><a href="secretaria.html">SECRETARIA</a></li>
+                    <li><a href="">PROYECTOS</a></li>
+                    <li><a href="">NOSOTROS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contenedor-foto">
+        <img src="Imagenes/holaaa.jpeg" alt="Portada">
+        <div class="texto">
+            <h2>SECRETARIA INSTITUCIONAL</h2>
+        </div>
+    </section>
+
+    <main class="contenido">
+        <section class="texto-principal">
+            <h3>BIENVENIDOS A NUESTRA SECRETARIA</h3>
+            <p>Bienvenidos al espacio de la secretaría Institucional, un pilar fundamental para el funcionamiento
+                organizado, transparente y eficiente de nuestra comunidad. <br>
+                Este espacio está diseñado para facilitar la
+                gestión de trámites, brindar atención personalizada a estudiantes, familias y docentes, y garantizar la
+                correcta administración de la documentación institucional.
+            </p>
+            <p>Bajo la conducción y liderazgo de Adriana, nuestra secretaria, trabajamos diariamente con el compromiso
+                de ofrecer un servicio cercano, ágil y de excelencia. Su dedicación y trayectoria aseguran que cada
+                gestión se realice con la responsabilidad y la calidez humana que caracterizan a nuestra institución.
+            </p>
+            </section>
+
+            <section class="horarios">
+            <h3>HORARIOS DE SECRETARIA</h3>
+            <ul>
+                <li>Lunes, miércoles y viernes de 8 am a 12 y de 13:30 a 16 hs</li>
+            </ul>
+        </section>
+        
+    </main>
+
+    
+
+    <div class="carrusel-contenedor">
+        <!-- Contenedor de imágenes -->
+        <div class="carrusel-track" id="track">
+            <img src="Imagenes/carrusel/A-trabajando.jpg" alt="Foto 1" class="carrusel-item">
+            <img src="Imagenes/carrusel/Adriana.png" alt="Imagen de la secretaria Adriana" class="carrusel-item">
+            <img src="Imagenes/carrusel/puerta.jpg" alt="Foto 3" class="carrusel-item">
+        </div>
+
+        <!-- Controles -->
+        <button class="btn-nav btn-prev" id="btn-prev">&#10094;</button>
+        <button class="btn-nav btn-next" id="btn-next">&#10095;</button>
+
+        <!-- Indicadores -->
+        <div class="carrusel-indicadores">
+            <span class="punto activo" data-indice="0"></span>
+            <span class="punto" data-indice="1"></span>
+            <span class="punto" data-indice="2"></span>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="footer">
+        <p>&copy; 2026 Escuela Técnica Profesional Incorporada. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="secretaria.js"></script>
+</body>
+
+</html>
