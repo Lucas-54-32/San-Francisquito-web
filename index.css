@@ -209,6 +209,133 @@ header.navbar.scrolled .menu-toggle span {
 }
 
 /* --- CONTENIDO --- */
+/* --- CONTENEDOR SECCIÓN PRINCIPAL --- */
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;          /* Espacio entre la primera y la segunda tarjeta */
+  margin-top: 100px;  /* Espacio de separación con el banner o menú superior */
+  margin-bottom: 60px;
+}
+
+/* --- ESTILOS GENERALES Y COMPARTIDOS DE LAS CARDS --- */
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background-color: #ffffff;
+  padding: 50px 50px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1000px;  /* Controla el ancho máximo para que no ocupe toda la pantalla */
+  margin: 0 auto;    /* Centra horizontalmente las tarjetas */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Columna de texto */
+.card-content {
+  flex: 1;
+  color: #1a1a1a;
+  font-family: sans-serif;
+}
+
+.card-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Contenedor base de las imágenes */
+.card-image-wrapper {
+  flex-shrink: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA CARD 1 (Imagen Circular) --- */
+.card1 .card-image-wrapper {
+  width: 320px;
+  height: 320px;
+}
+
+.card1 .card-image {
+  border-radius: 50%; /* Transforma la imagen a circular */
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA CARD 2 (Imagen Rectangular Redondeada) --- */
+.card2 .card-image-wrapper {
+  width: 340px;
+  height: 280px;
+}
+
+.card2 .card-image {
+  border-radius: 28px; 
+}
+
+/* --- DISEÑO RESPONSIVO (PANTALLAS MÓVILES) --- */
+@media (max-width: 768px) {
+  .cards-section {
+    margin-top: 50px;
+    gap: 40px;
+  }
+
+  .card-container {
+    padding: 30px 20px;
+    text-align: center;
+    width: 95%;
+  }
+
+  /* Reorganiza en vertical para pantallas pequeñas */
+  .card1 {
+    flex-direction: column-reverse; /* En móvil: imagen arriba del texto */
+  }
+
+  .card2 {
+    flex-direction: column;
+  }
+
+  .card1 .card-image-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .card2 .card-image-wrapper {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+  }
+}
+/* Estado invisible inicial con un ligero desplazamiento hacia abajo */
+.fade-in-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Estado cuando se activa con el scroll */
+.fade-in-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*
 .contenido {
     display: flex;
     flex-direction: row-reverse;
@@ -240,7 +367,7 @@ header.navbar.scrolled .menu-toggle span {
     font-size: 1.3rem;
     margin-top: 0;
     text-align: left;
-}
+}*/
 
 .contenido-formacion {
     display: flex;

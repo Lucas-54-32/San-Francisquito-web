@@ -20,3 +20,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".fade-in-card");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2 // Se activa cuando el 20% de la tarjeta ingresa en pantalla
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Detiene la observación una vez mostrada
+      }
+    });
+  }, observerOptions);
+
+  cards.forEach(card => observer.observe(card));
+});

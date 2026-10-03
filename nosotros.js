@@ -57,3 +57,27 @@ puntos.forEach((punto) => {
     actualizarCarrusel();
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll(".fade-in-card, .timeline-item");
+
+  if (!animatedElements.length) return;
+
+  const observerOptions = {
+    root: null,
+    // -50px bottom hace que el elemento se active justo cuando asoma un poco arriba del borde inferior de la pantalla
+    rootMargin: "0px 0px -50px 0px", 
+    threshold: 0.1
+  };
+
+  const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Se detiene una vez visible
+      }
+    });
+  }, observerOptions);
+
+  animatedElements.forEach(el => scrollObserver.observe(el));
+});
