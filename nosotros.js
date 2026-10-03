@@ -27,37 +27,6 @@ const btnPrev = document.getElementById('btn-prev');
 const btnNext = document.getElementById('btn-next');
 const totalImagenes = puntos.length;
 
-// Función para actualizar la posición del carrusel y los puntos
-function actualizarCarrusel() {
-  track.style.transform = `translateX(-${indiceActual * 100}%)`;
-  
-  puntos.forEach((punto, i) => {
-    punto.classList.toggle('activo', i === indiceActual);
-  });
-}
-
-// Función para cambiar de imagen (1 para adelante, -1 para atrás)
-function mover(direccion) {
-  indiceActual += direccion;
-  
-  if (indiceActual >= totalImagenes) indiceActual = 0;
-  if (indiceActual < 0) indiceActual = totalImagenes - 1;
-  
-  actualizarCarrusel();
-}
-
-// Event Listeners para las flechas de navegación
-btnPrev.addEventListener('click', () => mover(-1));
-btnNext.addEventListener('click', () => mover(1));
-
-// Event Listeners para los puntos inferiores
-puntos.forEach((punto) => {
-  punto.addEventListener('click', (e) => {
-    indiceActual = parseInt(e.target.getAttribute('data-indice'));
-    actualizarCarrusel();
-  });
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   const animatedElements = document.querySelectorAll(".fade-in-card, .timeline-item");
 
@@ -65,8 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const observerOptions = {
     root: null,
-    // -50px bottom hace que el elemento se active justo cuando asoma un poco arriba del borde inferior de la pantalla
-    rootMargin: "0px 0px -50px 0px", 
+    rootMargin: "0px 0px -50px 0px", // Se activa cuando asoma cerca del borde inferior
     threshold: 0.1
   };
 
@@ -74,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // Se detiene una vez visible
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
